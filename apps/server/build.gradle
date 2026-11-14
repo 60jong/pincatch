@@ -42,4 +42,8 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	// 로컬 PostgreSQL이 꺼져 있을 때 -PskipDbTests 로 DB가 필요한 컨텍스트 로딩 테스트만 뺀다 (.claude/hooks/verify-on-stop.sh가 쓴다)
+	if (project.hasProperty('skipDbTests')) {
+		filter { excludeTestsMatching 'com.catchpin.server.ServerApplicationTests' }
+	}
 }

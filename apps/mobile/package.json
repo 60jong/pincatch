@@ -64,7 +64,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "test": "jest --watchAll"
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "verify": "npm run typecheck && npm run lint && npm test"
   },
   "jest": {
     "preset": "jest-expo",
