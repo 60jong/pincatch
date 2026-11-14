@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>catch pin · 로그인 · 다크</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;900&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark}
+body{margin:0;background:#11141D}
+a{color:#EEF1F8;text-decoration:none}a:hover{color:#EEF1F8}
+input::placeholder{color:#7C8399}
+
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; width: 390px; height: 844px; box-sizing: border-box; background: #1B2030; font-family: 'Gothic A1', system-ui, sans-serif; color: #EEF1F8; padding: 56px 24px 30px; display: flex; flex-direction: column; gap: 16px">
+<div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; text-align: center">
+<svg width="104" height="110" viewBox="0 0 100 106" role="img" aria-label="catch pin 로고">
+<rect x="0" y="6" width="100" height="100" rx="26" fill="#1D52B8"></rect>
+<rect x="0" y="0" width="100" height="100" rx="26" fill="#2F6FE8"></rect>
+<path d="M69.8 30.2 A28 28 0 1 0 69.8 69.8" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"></path>
+<circle cx="50" cy="53" r="11" fill="#D99A00"></circle>
+<circle cx="50" cy="50" r="11" fill="#FFC21A"></circle>
+</svg>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px"><div role="img" aria-label="catch pin" style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -1.4px; color: #EEF1F8; line-height: 1; white-space: nowrap">catch p<span style="position: relative; display: inline-block">ı<span style="position: absolute; left: 50%; top: -0.7px; width: 7.2px; height: 7.2px; margin-left: -3.6px; border-radius: 50%; background: #FFC21A; box-shadow: 0 1.1px 0 #D99A00"></span></span>n</div>
+<div style="font-size: 17px; color: #A3A9BD; line-height: 1.45">내 주변 핀을 가장 먼저 눌러<br>포인트를 모아보세요</div></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<a href="TermsDark.dc.html" style="position: relative; min-height: 54px; border-radius: 16px; background: #FEE500; box-shadow: 0 4px 0 rgba(0,0,0,0.18); color: rgba(0,0,0,0.85); font-size: 16px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-sizing: border-box"><span aria-hidden="true" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 5px; border: 1.5px dashed rgba(0,0,0,0.35); box-sizing: border-box"></span>카카오로 계속하기</a>
+<a href="TermsDark.dc.html" style="position: relative; min-height: 54px; border-radius: 16px; background: #000000; box-shadow: 0 4px 0 rgba(0,0,0,0.18); color: #FFFFFF; font-size: 16px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-sizing: border-box"><span aria-hidden="true" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 5px; border: 1.5px dashed rgba(255,255,255,0.5); box-sizing: border-box"></span>Apple로 계속하기</a>
+<a href="TermsDark.dc.html" style="position: relative; min-height: 54px; border-radius: 16px; background: #1B2030; border: 2px solid #2A3044; box-shadow: 0 4px 0 rgba(0,0,0,0.18); color: #EEF1F8; font-size: 16px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-sizing: border-box"><span aria-hidden="true" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 5px; border: 1.5px dashed rgba(0,0,0,0.6); box-sizing: border-box"></span>Google로 계속하기</a>
+</div>
+<a href="LoginEmailDark.dc.html" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 900; color: #7FA8FF">이메일로 계속하기</a>
+<div style="font-size: 12px; color: #A3A9BD; text-align: center; line-height: 1.6">계속하면 <a href="#" style="color: #A3A9BD; text-decoration: underline">이용약관</a> 및 <a href="#" style="color: #A3A9BD; text-decoration: underline">개인정보처리방침</a>을 확인한 것으로 봐요</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

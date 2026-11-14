@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>catch pin · 판정 대결 · 이김</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=Gothic+A1:wght@500;700;900&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#1F2233}a{text-decoration:none}
+.jd *{box-sizing:border-box}
+@keyframes jd-rise{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
+.jd-rise{animation:jd-rise .42s cubic-bezier(.2,.8,.3,1) both}
+@keyframes jd-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.jd-shake-L,.jd-shake-R{}
+@keyframes jd-press{0%,100%{transform:scale(1)}40%{transform:scale(.96)}}
+.jd-press{animation:jd-press .16s ease-out .6s both}
+@keyframes jd-touch{0%{opacity:0;transform:scale(1.7)}45%{opacity:1;transform:scale(1.15)}50%{opacity:1;transform:scale(1)}62%{transform:scale(.82)}75%{opacity:1;transform:scale(.9)}100%{opacity:0;transform:scale(.9)}}
+.jd-touch{opacity:0;animation:jd-touch 1.1s ease-out .1s both}
+@keyframes jd-burst{0%{opacity:0;transform:scale(.5)}30%{opacity:1}100%{opacity:0;transform:scale(1.25)}}
+.jd-burst{opacity:0;animation:jd-burst .4s ease-out .62s both}
+@keyframes jd-ripple{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2.4)}}
+.jd-ripple{opacity:0;animation:jd-ripple .5s ease-out .6s both}
+@keyframes jd-pin{0%,100%{transform:scale(1)}40%{transform:scale(.86)}}
+.jd-pin{transform-origin:50% 60%;animation:jd-pin .2s ease-out .6s both}
+@keyframes jd-flick{0%,16.6%{opacity:1}16.7%,100%{opacity:0}}
+.jd-flick{opacity:0;animation:jd-flick .33s step-end infinite}
+@keyframes jd-win-bolt{0%,22.47%{opacity:0}22.50%,64.06%{opacity:1}64.09%,100%{opacity:0}}
+.jd-w-bolt{opacity:0;animation:jd-win-bolt 3.2s linear both}
+@keyframes jd-win-pre{0%,22.47%{opacity:1}22.50%,100%{opacity:0}}
+.jd-w-pre{animation:jd-win-pre 3.2s linear both}
+@keyframes jd-win-post{0%,64.03%{opacity:0}64.06%,100%{opacity:1}}
+.jd-w-post{opacity:0;animation:jd-win-post 3.2s linear both}
+@keyframes jd-flash{0%,18.44%{opacity:0}19.37%{opacity:.12}25.00%{opacity:0}62.50%{opacity:0}66.25%{opacity:.45}78.12%,100%{opacity:0}}
+.jd-flash{opacity:0;animation:jd-flash 3.2s linear both}
+@keyframes jd-vs{0%{opacity:0;transform:scale(.4)}60%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+.jd-vs-in{animation:jd-vs .5s cubic-bezier(.3,1.4,.5,1) .1s both}
+@keyframes jd-vs-shake{0%,100%{transform:rotate(0) scale(1)}25%{transform:rotate(-8deg) scale(1.08)}75%{transform:rotate(8deg) scale(.96)}}
+.jd-vs-sh{}
+@keyframes jd-out{to{opacity:0}}
+.jd-vs-out{animation:jd-vs-fade .3s cubic-bezier(.4,0,.2,1) .6s forwards}
+@keyframes jd-vs-fade{to{opacity:0;transform:scale(.7)}}
+.jd-hud-out{animation:jd-out .3s linear 2.08s forwards}
+@keyframes jd-open-L{from{clip-path:inset(0 50% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes jd-open-R{from{clip-path:inset(0 0 0 50%)}to{clip-path:inset(0 0 0 0)}}
+.jd-open-L{animation:jd-open-L .48s cubic-bezier(.65,0,.35,1) 2.08s both}
+.jd-open-R{animation:jd-open-R .48s cubic-bezier(.65,0,.35,1) 2.08s both}
+@keyframes jd-in{from{opacity:0}to{opacity:1}}
+.jd-tint{opacity:0;animation:jd-in .48s ease 2.08s both}
+@keyframes jd-mvL{to{transform:translateX(97.5px)}}
+@keyframes jd-mvR{to{transform:translateX(-97.5px)}}
+.jd-mv-L{animation:jd-mvL .48s cubic-bezier(.65,0,.35,1) 2.08s both}
+.jd-mv-R{animation:jd-mvR .48s cubic-bezier(.65,0,.35,1) 2.08s both}
+.jd-ph-out{animation:jd-out .26s linear 2.33s forwards}
+@keyframes jd-res{from{opacity:0;visibility:hidden;transform:translateY(18px)}1%{visibility:visible}to{opacity:1;visibility:visible;transform:none}}
+.jd-res{opacity:0;visibility:hidden;animation:jd-res .4s ease-out 2.48s both}
+@keyframes jd-pop{0%{transform:scale(.4)}60%{transform:scale(1.1)}100%{transform:scale(1)}}
+.jd-pop{animation:jd-pop .5s cubic-bezier(.3,1.4,.5,1) 2.5s both}
+@keyframes jd-spin{to{transform:rotate(360deg)}}
+.jd-spin{animation:jd-spin 6s linear infinite}
+@keyframes jd-conf{0%{opacity:0;transform:translate(0,0) rotate(0)}2%{opacity:1}35%{transform:translate(calc(var(--dx) * .45),var(--up)) rotate(calc(var(--rot) * .4));animation-timing-function:ease-in}100%{opacity:1;transform:translate(var(--dx),var(--dn)) rotate(var(--rot))}}
+.jd-conf{position:absolute;border-radius:3px;opacity:0;animation:jd-conf 1.6s ease-out both}
+@keyframes jd-show{from{opacity:0;visibility:hidden}to{opacity:1;visibility:visible}}
+.jd-replay{opacity:0;visibility:hidden;animation:jd-show .3s ease 3.2s both}
+@keyframes jd-bolt-vis{0%,18.75%{opacity:0}20.62%,62.50%{opacity:1}75.00%,100%{opacity:0}}
+.jd-bolt-vis{opacity:0;animation:jd-bolt-vis 3.2s linear both}
+@keyframes jd-strike{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.jd-strike{animation:jd-strike .3s cubic-bezier(.3,.7,.2,1) .62s both}
+@keyframes jd-halo-in{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes jd-halo{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.05)}}
+.jd-halo{opacity:0;animation:jd-halo-in .5s cubic-bezier(.22,1,.36,1) .66s both, jd-halo 1.6s ease-in-out 1.16s infinite}
+@keyframes jd-shine{from{transform:translateY(0)}to{transform:translateY(720px)}}
+.jd-shine{transform:translateY(-200px);animation:jd-shine 1.1s cubic-bezier(.45,0,.55,1) .95s infinite}
+@keyframes jd-boom{0%,57.81%{opacity:0}65.62%{opacity:.85}100%{opacity:.85}}
+.jd-boom{opacity:0;animation:jd-boom 3.2s ease-in-out both}
+@media (prefers-reduced-motion: reduce){.jd-flick,.jd-halo,.jd-shine,.jd-spin{animation:none}}
+</style>
+</helmet>
+<div class="jd" style="position: relative; overflow: hidden; width: 390px; height: 844px; background: #1F2233; font-family: 'Gothic A1', system-ui, sans-serif; color: #FFFFFF">
+<sc-if value="{{ on }}" hint-placeholder-val="{{ true }}">
+<div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 42%, #1F3A8A 0%, #0F1630 58%, #080B1C 100%); clip-path: inset(0 0 0 50%)">
+<div class="jd-rise" style="position: absolute; left: 292.5px; top: 236px; width: 152px; margin-left: -76px">
+<div class="jd-shake-R"><div style="transform: rotate(3deg)">
+<div class="jd-press" style="position: relative; width: 152px; height: 282px; border-radius: 32px; background: #1F2233; padding: 7px; box-sizing: border-box; box-shadow: 0 8px 0 rgba(0,0,0,0.32)">
+<div style="position: relative; width: 100%; height: 100%; border-radius: 25px; overflow: hidden; background: #EEF2F8">
+<svg width="138" height="268" viewBox="0 0 138 268" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<rect x="-6" y="104" width="150" height="16" fill="#F8FAFD"></rect><rect x="58" y="-6" width="14" height="280" fill="#F8FAFD"></rect><rect x="-6" y="196" width="150" height="10" fill="#F8FAFD"></rect>
+<rect x="8" y="32" width="42" height="64" rx="9" fill="#DFE5EF"></rect><rect x="8" y="30" width="42" height="64" rx="9" fill="#FFFFFF"></rect>
+<rect x="80" y="38" width="50" height="58" rx="9" fill="#DFE5EF"></rect><rect x="80" y="36" width="50" height="58" rx="9" fill="#FFFFFF"></rect>
+<rect x="8" y="130" width="42" height="58" rx="9" fill="#BCE5C9"></rect><rect x="8" y="128" width="42" height="58" rx="9" fill="#DDF3E4"></rect>
+<circle cx="20" cy="142" r="6" fill="#7CC898"></circle><circle cx="38" cy="172" r="6" fill="#7CC898"></circle>
+<rect x="80" y="130" width="50" height="58" rx="9" fill="#DFE5EF"></rect><rect x="80" y="128" width="50" height="58" rx="9" fill="#FFFFFF"></rect>
+<rect x="8" y="214" width="122" height="60" rx="9" fill="#DFE5EF"></rect><rect x="8" y="212" width="122" height="60" rx="9" fill="#FFFFFF"></rect>
+<text x="14" y="17" font-family="Sora, sans-serif" font-weight="800" font-size="9" fill="#1F2233">9:41</text>
+<rect x="49" y="6" width="40" height="12" rx="6" fill="#1F2233"></rect>
+<rect x="110" y="9" width="16" height="7" rx="2" fill="none" stroke="#1F2233" stroke-width="1.4"></rect><rect x="112" y="11" width="10" height="3" rx="1" fill="#1F2233"></rect>
+</svg>
+<div class="jd-ripple" style="position: absolute; left: 37px; top: 78px; width: 64px; height: 64px; border-radius: 50%; border: 4px solid #FFFFFF; box-sizing: border-box"></div>
+<svg class="jd-pin" width="64" height="70" viewBox="0 0 64 70" aria-hidden="true" style="position: absolute; left: 37px; top: 78px; overflow: visible">
+<ellipse cx="32" cy="66" rx="18" ry="4" fill="rgba(0,0,0,0.18)"></ellipse>
+<circle cx="32" cy="36" r="27" fill="#1D52B8"></circle><circle cx="32" cy="30" r="27" fill="#2F6FE8"></circle>
+<circle cx="32" cy="30" r="21" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3"></circle>
+<rect x="15" y="12" width="13" height="7" rx="3.5" fill="#FFFFFF" fill-opacity="0.55" transform="rotate(-35 21 15)"></rect>
+<text x="32" y="36.5" text-anchor="middle" font-family="Sora, sans-serif" font-weight="800" font-size="17" fill="#FFFFFF">+50</text>
+</svg>
+<div class="jd-touch" style="position: absolute; left: 45px; top: 86px; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.55); border: 4px solid #1F2233; box-sizing: border-box"></div>
+<svg class="jd-burst" width="96" height="96" viewBox="0 0 96 96" aria-hidden="true" style="position: absolute; left: 21px; top: 62px; overflow: visible"><path d="M48 4v14M48 78v14M4 48h14M78 48h14M17 17l10 10M69 69l10 10M79 17L69 27M27 69L17 79" stroke="#FFC21A" stroke-width="5" stroke-linecap="round"></path></svg>
+</div>
+</div>
+</div></div>
+<div style="display: flex; justify-content: center; margin-top: 18px"><div style="display: flex; align-items: center; gap: 7px; background: #FFFFFF; border-radius: 999px; padding: 5px 14px 5px 5px; box-shadow: 0 4px 0 rgba(0,0,0,0.25)"><div style="width: 26px; height: 26px; border-radius: 50%; background: #FF5A4E; color: #FFFFFF; font-size: 12px; font-weight: 900; display: flex; align-items: center; justify-content: center">상</div><div style="font-size: 15px; font-weight: 900; color: #1F2233">상대</div></div></div>
+</div>
+</div>
+<div class="jd-open-L" style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 42%, #1F3A8A 0%, #0F1630 58%, #080B1C 100%); clip-path: inset(0 50% 0 0)">
+<div class="jd-tint" style="position: absolute; inset: 0; background: #58CC02"></div>
+<div class="jd-ph-out"><div class="jd-mv-L"><div class="jd-rise" style="position: absolute; left: 97.5px; top: 236px; width: 152px; margin-left: -76px">
+<div class="jd-shake-L"><div style="transform: rotate(-3deg)">
+<div class="jd-press" style="position: relative; width: 152px; height: 282px; border-radius: 32px; background: #1F2233; padding: 7px; box-sizing: border-box; box-shadow: 0 8px 0 rgba(0,0,0,0.32)">
+<div style="position: relative; width: 100%; height: 100%; border-radius: 25px; overflow: hidden; background: #EEF2F8">
+<svg width="138" height="268" viewBox="0 0 138 268" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<rect x="-6" y="104" width="150" height="16" fill="#F8FAFD"></rect><rect x="58" y="-6" width="14" height="280" fill="#F8FAFD"></rect><rect x="-6" y="196" width="150" height="10" fill="#F8FAFD"></rect>
+<rect x="8" y="32" width="42" height="64" rx="9" fill="#DFE5EF"></rect><rect x="8" y="30" width="42" height="64" rx="9" fill="#FFFFFF"></rect>
+<rect x="80" y="38" width="50" height="58" rx="9" fill="#DFE5EF"></rect><rect x="80" y="36" width="50" height="58" rx="9" fill="#FFFFFF"></rect>
+<rect x="8" y="130" width="42" height="58" rx="9" fill="#BCE5C9"></rect><rect x="8" y="128" width="42" height="58" rx="9" fill="#DDF3E4"></rect>
+<circle cx="20" cy="142" r="6" fill="#7CC898"></circle><circle cx="38" cy="172" r="6" fill="#7CC898"></circle>
+<rect x="80" y="130" width="50" height="58" rx="9" fill="#DFE5EF"></rect><rect x="80" y="128" width="50" height="58" rx="9" fill="#FFFFFF"></rect>
+<rect x="8" y="214" width="122" height="60" rx="9" fill="#DFE5EF"></rect><rect x="8" y="212" width="122" height="60" rx="9" fill="#FFFFFF"></rect>
+<text x="14" y="17" font-family="Sora, sans-serif" font-weight="800" font-size="9" fill="#1F2233">9:41</text>
+<rect x="49" y="6" width="40" height="12" rx="6" fill="#1F2233"></rect>
+<rect x="110" y="9" width="16" height="7" rx="2" fill="none" stroke="#1F2233" stroke-width="1.4"></rect><rect x="112" y="11" width="10" height="3" rx="1" fill="#1F2233"></rect>
+</svg>
+<div class="jd-ripple" style="position: absolute; left: 37px; top: 78px; width: 64px; height: 64px; border-radius: 50%; border: 4px solid #FFFFFF; box-sizing: border-box"></div>
+<svg class="jd-pin" width="64" height="70" viewBox="0 0 64 70" aria-hidden="true" style="position: absolute; left: 37px; top: 78px; overflow: visible">
+<ellipse cx="32" cy="66" rx="18" ry="4" fill="rgba(0,0,0,0.18)"></ellipse>
+<circle cx="32" cy="36" r="27" fill="#1D52B8"></circle><circle cx="32" cy="30" r="27" fill="#2F6FE8"></circle>
+<circle cx="32" cy="30" r="21" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3"></circle>
+<rect x="15" y="12" width="13" height="7" rx="3.5" fill="#FFFFFF" fill-opacity="0.55" transform="rotate(-35 21 15)"></rect>
+<text x="32" y="36.5" text-anchor="middle" font-family="Sora, sans-serif" font-weight="800" font-size="17" fill="#FFFFFF">+50</text>
+</svg>
+<div class="jd-touch" style="position: absolute; left: 45px; top: 86px; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.55); border: 4px solid #1F2233; box-sizing: border-box"></div>
+<svg class="jd-burst" width="96" height="96" viewBox="0 0 96 96" aria-hidden="true" style="position: absolute; left: 21px; top: 62px; overflow: visible"><path d="M48 4v14M48 78v14M4 48h14M78 48h14M17 17l10 10M69 69l10 10M79 17L69 27M27 69L17 79" stroke="#FFC21A" stroke-width="5" stroke-linecap="round"></path></svg>
+</div>
+</div>
+</div></div>
+<div style="display: flex; justify-content: center; margin-top: 18px"><div style="display: flex; align-items: center; gap: 7px; background: #FFFFFF; border-radius: 999px; padding: 5px 14px 5px 5px; box-shadow: 0 4px 0 rgba(0,0,0,0.25)"><div style="width: 26px; height: 26px; border-radius: 50%; background: #2F6FE8; color: #FFFFFF; font-size: 12px; font-weight: 900; display: flex; align-items: center; justify-content: center">나</div><div style="font-size: 15px; font-weight: 900; color: #1F2233">나</div></div></div>
+</div></div></div>
+</div>
+<div class="jd-hud-out" aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 194px; width: 2px; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(143,180,255,0.35) 30%, rgba(143,180,255,0.35) 70%, rgba(255,255,255,0) 100%)"></div>
+<div class="jd-bolt-vis" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
+<div class="jd-halo" style="position: absolute; left: 30px; top: 90px; width: 340px; height: 560px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(126,232,225,0.42) 0%, rgba(126,232,225,0.14) 40%, rgba(126,232,225,0) 70%)"></div>
+<div class="jd-strike" style="position: absolute; inset: 0">
+<div style="position: absolute; inset: 0; transform: translateY(8px); background: rgba(8,40,48,0.55); clip-path: polygon(234px 120px, 284px 120px, 236px 319px, 276px 314px, 150px 631px, 194px 387px, 150px 394px)"></div>
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, #D8FFFB 0%, #8FF0E8 40%, #4FD3CC 100%); clip-path: polygon(234px 120px, 284px 120px, 236px 319px, 276px 314px, 150px 631px, 194px 387px, 150px 394px)"></div>
+<div style="position: absolute; inset: 0; background: rgba(255,255,255,0.85); clip-path: polygon(244px 132px, 256px 132px, 206px 377px, 199px 379px)"></div>
+<div style="position: absolute; inset: 0; background: rgba(255,255,255,0.5); clip-path: polygon(252px 332px, 258px 331px, 172px 603px, 169px 605px)"></div>
+<div style="position: absolute; inset: 0; clip-path: polygon(234px 120px, 284px 120px, 236px 319px, 276px 314px, 150px 631px, 194px 387px, 150px 394px); overflow: hidden"><div class="jd-shine" style="position: absolute; left: 140px; top: 0; width: 150px; height: 150px; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%)"></div></div>
+<div class="jd-boom" style="position: absolute; inset: 0; background: #FFFFFF; clip-path: polygon(234px 120px, 284px 120px, 236px 319px, 276px 314px, 150px 631px, 194px 387px, 150px 394px)"></div>
+</div>
+</div>
+</div>
+<div class="jd-vs-out" aria-hidden="true" style="position: absolute; left: 157px; top: 352px; width: 76px; height: 82px"><div class="jd-vs-in"><div class="jd-vs-sh">
+<svg width="76" height="82" viewBox="0 0 76 82" aria-hidden="true"><circle cx="38" cy="44" r="35" fill="#1F2233"></circle><circle cx="38" cy="38" r="35" fill="#1F2233"></circle><circle cx="38" cy="38" r="30" fill="#FFC21A"></circle><circle cx="38" cy="41" r="24" fill="#FFB000"></circle><circle cx="38" cy="37" r="24" fill="#FFC21A"></circle><rect x="20" y="18" width="12" height="6" rx="3" fill="#FFFFFF" fill-opacity="0.7" transform="rotate(-35 26 21)"></rect><text x="38" y="48" text-anchor="middle" font-family="Black Han Sans, sans-serif" font-size="28" fill="#1F2233">VS</text></svg>
+</div></div></div>
+<div class="jd-flash" aria-hidden="true" style="position: absolute; inset: 0; background: #E9FFFD; pointer-events: none"></div>
+<div class="jd-hud-out" aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 96px; display: flex; justify-content: center"><div class="jd-rise" style="display: flex; align-items: center; gap: 8px; background: #1F2233; border-radius: 18px; padding: 8px 18px 8px 12px; box-shadow: 0 6px 0 #000000"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC21A" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 1.5M9.5 2.5h5"></path></svg><div style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 26px; color: #FFC21A; font-variant-numeric: tabular-nums; letter-spacing: -0.5px"><span style="position: relative; display: inline-block; min-width: 96px">
+<span style="visibility: hidden">0.000초</span>
+<span class="jd-w-pre" style="position: absolute; left: 0">0.000초</span>
+<span class="jd-w-bolt" style="position: absolute; left: 0; top: 0; width: 100%"><span class="jd-flick" style="position: absolute; left: 0; animation-delay: -0.000s">0.040초</span><span class="jd-flick" style="position: absolute; left: 0; animation-delay: -0.055s">0.085초</span><span class="jd-flick" style="position: absolute; left: 0; animation-delay: -0.110s">0.079초</span><span class="jd-flick" style="position: absolute; left: 0; animation-delay: -0.165s">0.026초</span><span class="jd-flick" style="position: absolute; left: 0; animation-delay: -0.220s">0.057초</span><span class="jd-flick" style="position: absolute; left: 0; animation-delay: -0.275s">0.087초</span></span>
+<span class="jd-w-post" style="position: absolute; left: 0">0.012초</span></span></div></div></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none"><div class="jd-conf" style="left: 196px; top: 330px; width: 11px; height: 12px; background: #FFC21A; --dx: -20px; --up: -230px; --dn: 620px; --rot: -37deg; animation-delay: 2.68s"></div><div class="jd-conf" style="left: 150px; top: 330px; width: 12px; height: 17px; background: #FF5A4E; --dx: 55px; --up: -267px; --dn: 404px; --rot: -212deg; animation-delay: 2.47s"></div><div class="jd-conf" style="left: 157px; top: 330px; width: 7px; height: 15px; background: #2F6FE8; --dx: 203px; --up: -294px; --dn: 550px; --rot: 125deg; animation-delay: 2.48s"></div><div class="jd-conf" style="left: 188px; top: 330px; width: 12px; height: 15px; background: #FFFFFF; --dx: -130px; --up: -179px; --dn: 388px; --rot: -39deg; animation-delay: 2.74s"></div><div class="jd-conf" style="left: 250px; top: 330px; width: 13px; height: 18px; background: #1CB0F6; --dx: -0px; --up: -246px; --dn: 499px; --rot: -240deg; animation-delay: 2.77s"></div><div class="jd-conf" style="left: 224px; top: 330px; width: 9px; height: 18px; background: #FF8FB8; --dx: -78px; --up: -177px; --dn: 455px; --rot: -464deg; animation-delay: 2.62s"></div><div class="jd-conf" style="left: 240px; top: 330px; width: 10px; height: 19px; background: #FFC21A; --dx: 192px; --up: -276px; --dn: 380px; --rot: -314deg; animation-delay: 2.63s"></div><div class="jd-conf" style="left: 150px; top: 330px; width: 9px; height: 19px; background: #FF5A4E; --dx: -179px; --up: -241px; --dn: 582px; --rot: -249deg; animation-delay: 2.79s"></div><div class="jd-conf" style="left: 228px; top: 330px; width: 8px; height: 15px; background: #2F6FE8; --dx: -160px; --up: -179px; --dn: 406px; --rot: -475deg; animation-delay: 2.65s"></div><div class="jd-conf" style="left: 153px; top: 330px; width: 10px; height: 13px; background: #FFFFFF; --dx: -130px; --up: -257px; --dn: 414px; --rot: 155deg; animation-delay: 2.57s"></div><div class="jd-conf" style="left: 163px; top: 330px; width: 9px; height: 18px; background: #1CB0F6; --dx: 198px; --up: -269px; --dn: 459px; --rot: 416deg; animation-delay: 2.74s"></div><div class="jd-conf" style="left: 225px; top: 330px; width: 9px; height: 13px; background: #FF8FB8; --dx: -168px; --up: -298px; --dn: 435px; --rot: -261deg; animation-delay: 2.48s"></div><div class="jd-conf" style="left: 181px; top: 330px; width: 10px; height: 19px; background: #FFC21A; --dx: -172px; --up: -233px; --dn: 443px; --rot: 109deg; animation-delay: 2.67s"></div><div class="jd-conf" style="left: 240px; top: 330px; width: 12px; height: 13px; background: #FF5A4E; --dx: 31px; --up: -279px; --dn: 428px; --rot: -374deg; animation-delay: 2.54s"></div><div class="jd-conf" style="left: 237px; top: 330px; width: 11px; height: 14px; background: #2F6FE8; --dx: 101px; --up: -290px; --dn: 431px; --rot: 486deg; animation-delay: 2.50s"></div><div class="jd-conf" style="left: 168px; top: 330px; width: 12px; height: 16px; background: #FFFFFF; --dx: -194px; --up: -294px; --dn: 442px; --rot: 221deg; animation-delay: 2.58s"></div><div class="jd-conf" style="left: 202px; top: 330px; width: 12px; height: 16px; background: #1CB0F6; --dx: -136px; --up: -255px; --dn: 398px; --rot: -293deg; animation-delay: 2.58s"></div><div class="jd-conf" style="left: 189px; top: 330px; width: 7px; height: 12px; background: #FF8FB8; --dx: 175px; --up: -173px; --dn: 384px; --rot: -249deg; animation-delay: 2.62s"></div><div class="jd-conf" style="left: 248px; top: 330px; width: 11px; height: 17px; background: #FFC21A; --dx: 30px; --up: -161px; --dn: 474px; --rot: 422deg; animation-delay: 2.71s"></div><div class="jd-conf" style="left: 217px; top: 330px; width: 13px; height: 11px; background: #FF5A4E; --dx: -151px; --up: -146px; --dn: 385px; --rot: 443deg; animation-delay: 2.74s"></div><div class="jd-conf" style="left: 148px; top: 330px; width: 10px; height: 17px; background: #2F6FE8; --dx: -7px; --up: -257px; --dn: 463px; --rot: 539deg; animation-delay: 2.86s"></div><div class="jd-conf" style="left: 179px; top: 330px; width: 11px; height: 18px; background: #FFFFFF; --dx: 100px; --up: -253px; --dn: 586px; --rot: 448deg; animation-delay: 2.84s"></div><div class="jd-conf" style="left: 209px; top: 330px; width: 9px; height: 16px; background: #1CB0F6; --dx: -35px; --up: -266px; --dn: 605px; --rot: 79deg; animation-delay: 2.72s"></div><div class="jd-conf" style="left: 220px; top: 330px; width: 9px; height: 17px; background: #FF8FB8; --dx: -176px; --up: -242px; --dn: 638px; --rot: 410deg; animation-delay: 2.71s"></div><div class="jd-conf" style="left: 143px; top: 330px; width: 11px; height: 15px; background: #FFC21A; --dx: -25px; --up: -274px; --dn: 402px; --rot: 270deg; animation-delay: 2.55s"></div><div class="jd-conf" style="left: 168px; top: 330px; width: 7px; height: 13px; background: #FF5A4E; --dx: 83px; --up: -220px; --dn: 540px; --rot: 454deg; animation-delay: 2.76s"></div><div class="jd-conf" style="left: 189px; top: 330px; width: 12px; height: 14px; background: #2F6FE8; --dx: -125px; --up: -167px; --dn: 615px; --rot: 173deg; animation-delay: 2.75s"></div><div class="jd-conf" style="left: 237px; top: 330px; width: 9px; height: 16px; background: #FFFFFF; --dx: -127px; --up: -209px; --dn: 590px; --rot: 447deg; animation-delay: 2.59s"></div><div class="jd-conf" style="left: 218px; top: 330px; width: 13px; height: 13px; background: #1CB0F6; --dx: -153px; --up: -219px; --dn: 598px; --rot: 377deg; animation-delay: 2.53s"></div><div class="jd-conf" style="left: 209px; top: 330px; width: 10px; height: 14px; background: #FF8FB8; --dx: -21px; --up: -184px; --dn: 436px; --rot: -93deg; animation-delay: 2.83s"></div></div>
+<div class="jd-res" role="status" style="position: absolute; inset: 0; padding: 0 22px 36px; display: flex; flex-direction: column; color: #FFFFFF">
+<div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center">
+<div class="jd-pop" style="position: relative; width: 138px; height: 146px"><div class="jd-spin" style="position: absolute; inset: -30px; border-radius: 50%; background: conic-gradient(from 0deg, rgba(255,255,255,0.28) 0 20deg, rgba(255,255,255,0) 20deg 45deg, rgba(255,255,255,0.28) 45deg 65deg, rgba(255,255,255,0) 65deg 90deg, rgba(255,255,255,0.28) 90deg 110deg, rgba(255,255,255,0) 110deg 135deg, rgba(255,255,255,0.28) 135deg 155deg, rgba(255,255,255,0) 155deg 180deg, rgba(255,255,255,0.28) 180deg 200deg, rgba(255,255,255,0) 200deg 225deg, rgba(255,255,255,0.28) 225deg 245deg, rgba(255,255,255,0) 245deg 270deg, rgba(255,255,255,0.28) 270deg 290deg, rgba(255,255,255,0) 290deg 315deg, rgba(255,255,255,0.28) 315deg 335deg, rgba(255,255,255,0) 335deg 360deg); -webkit-mask-image: radial-gradient(circle, #000 30%, transparent 70%); mask-image: radial-gradient(circle, #000 30%, transparent 70%)"></div>
+<svg width="138" height="146" viewBox="0 0 138 146" aria-hidden="true" style="position: relative"><circle cx="69" cy="77" r="64" fill="#D99A00"></circle><circle cx="69" cy="69" r="64" fill="#FFC21A"></circle><circle cx="69" cy="69" r="50" fill="none" stroke="#FFE07A" stroke-width="6"></circle><rect x="30" y="30" width="26" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.6" transform="rotate(-38 43 36)"></rect><text x="69" y="84" text-anchor="middle" font-family="Sora, sans-serif" font-weight="800" font-size="42" fill="#8A6200">P</text></svg></div>
+<div style="font-family: 'Black Han Sans', sans-serif; font-size: 32px; text-shadow: 0 4px 0 #46A302">내가 먼저 잡았어요!</div>
+<div style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 64px; letter-spacing: -2px; line-height: 1; text-shadow: 0 5px 0 #46A302">+50P</div>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 22px"><div style="flex: 1; border-radius: 18px; background: #FFC21A; padding: 3px; box-shadow: 0 5px 0 #D99A00"><div style="font-size: 12px; font-weight: 900; color: #FFFFFF; text-align: center; padding: 3px 0 4px">차이</div><div style="background: #FFFFFF; border-radius: 15px; min-height: 52px; display: flex; align-items: center; justify-content: center; font-family: 'Sora', 'Gothic A1', sans-serif; font-weight: 800; font-size: 20px; color: #FFC21A">0.012초</div></div><div style="flex: 1; border-radius: 18px; background: #2F6FE8; padding: 3px; box-shadow: 0 5px 0 #1D52B8"><div style="font-size: 12px; font-weight: 900; color: #FFFFFF; text-align: center; padding: 3px 0 4px">오늘 잡은 핀</div><div style="background: #FFFFFF; border-radius: 15px; min-height: 52px; display: flex; align-items: center; justify-content: center; font-family: 'Sora', 'Gothic A1', sans-serif; font-weight: 800; font-size: 20px; color: #2F6FE8">4개</div></div></div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div role="button" aria-label="광고 보고 50포인트 더 받기" style="min-height: 58px; border-radius: 18px; background: #FFFFFF; box-shadow: 0 5px 0 #46A302; color: #58CC02; font-size: 17px; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer"><span style="width: 28px; height: 28px; border-radius: 9px; background: #FFC21A; box-shadow: 0 3px 0 #D99A00; display: inline-flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="#3A2A00"></path></svg></span>광고 보고 2배 받기</div>
+<a href="HomeGlass.dc.html" style="min-height: 54px; border-radius: 18px; border: 3px solid rgba(255,255,255,0.6); border-bottom-width: 6px; box-sizing: border-box; color: #FFFFFF; font-size: 16px; font-weight: 900; display: flex; align-items: center; justify-content: center">확인</a>
+<div role="checkbox" aria-checked="{{ simpleAria }}" onClick="{{ toggleSimple }}" style="min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 900; cursor: pointer"><div style="width: 22px; height: 22px; border-radius: 7px; border: 3px solid #FFFFFF; background: {{ simpleBg }}; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#58CC02" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity: {{ simpleChk }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></div>다음부턴 간단한 알림만 받기</div>
+</div>
+</div>
+<div class="jd-replay" role="button" aria-label="다시 보기" onClick="{{ replay }}" style="position: absolute; right: 16px; top: 18px; height: 38px; padding: 0 12px; border-radius: 12px; background: rgba(31,34,51,0.35); color: #FFFFFF; font-size: 13px; font-weight: 900; display: flex; align-items: center; gap: 6px; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg>다시 보기</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    return {
+      on: s.off ? false : true,
+      replay: () => { this.setState({ off: true }); setTimeout(() => this.setState({ off: false }), 40); },
+      simpleAria: s.simple ? 'true' : 'false',
+      simpleBg: s.simple ? '#FFFFFF' : 'transparent',
+      simpleChk: s.simple ? '1' : '0',
+      toggleSimple: () => this.setState({ simple: !s.simple })
+    };
+  }
+}
+</script>
+</body>
+</html>

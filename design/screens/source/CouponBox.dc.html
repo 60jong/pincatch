@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>catch pin · 쿠폰함</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;900&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1F2233;text-decoration:none}a:hover{color:#1F2233}
+input::placeholder{color:#8A8FA3}
+
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; font-family: 'Gothic A1', system-ui, sans-serif; color: #1F2233; padding: 18px 20px 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between; min-height: 44px; margin: -6px -10px 0"><a href="Wallet.dc.html" aria-label="뒤로" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#AEB4C6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a><div style="font-size: 17px; font-weight: 900">쿠폰함</div><div style="min-width: 44px; display: flex; justify-content: flex-end"></div></div>
+<div role="tablist" style="background: #F4F6FB; border: 2px solid #E3E7EF; border-radius: 14px; padding: 3px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2"><div role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.pick }}" style="min-height: 38px; border-radius: 10px; background: {{ t.bg }}; box-shadow: {{ t.sh }}; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 14px; font-weight: 900; color: {{ t.color }}; cursor: pointer">{{ t.label }}</div></sc-for>
+</div>
+<sc-if value="{{ usable }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div role="button" aria-label="편의점 상품권 5,000원 쿠폰 열기" onClick="{{ open0 }}" style="position: relative; display: flex; border-radius: 20px; background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; box-sizing: border-box; overflow: hidden; cursor: pointer">
+<div style="width: 76px; background: #2F6FE8; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2"></rect><path d="M3 9h18M12 9v11M12 9S10.5 4 8 4.5 7.5 9 12 9zM12 9s1.5-5 4-4.5S16.5 9 12 9z"></path></svg></div>
+<div style="flex-grow: 1; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 13px; font-weight: 700; color: #5B6078">편의점 상품권</div><div style="font-size: 12px; font-weight: 900; color: {{ dc0 }}; background: {{ db0 }}; border-radius: 999px; padding: 2px 8px">D-28</div></div>
+<div style="font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px">5,000원</div>
+<div style="font-size: 12px; font-weight: 700; color: #8A8FA3">2026.10.27까지</div></div></div>
+<div role="button" aria-label="카페 음료 쿠폰 아메리카노 쿠폰 열기" onClick="{{ open1 }}" style="position: relative; display: flex; border-radius: 20px; background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; box-sizing: border-box; overflow: hidden; cursor: pointer">
+<div style="width: 76px; background: #A0522D; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2"></rect><path d="M3 9h18M12 9v11M12 9S10.5 4 8 4.5 7.5 9 12 9zM12 9s1.5-5 4-4.5S16.5 9 12 9z"></path></svg></div>
+<div style="flex-grow: 1; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 13px; font-weight: 700; color: #5B6078">카페 음료 쿠폰</div><div style="font-size: 12px; font-weight: 900; color: {{ dc1 }}; background: {{ db1 }}; border-radius: 999px; padding: 2px 8px">D-6</div></div>
+<div style="font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px">아메리카노</div>
+<div style="font-size: 12px; font-weight: 700; color: #8A8FA3">2026.10.05까지</div></div></div>
+</div>
+<div style="font-size: 13px; font-weight: 700; color: #5B6078; padding: 0 4px; line-height: 1.5; margin-top: -8px">사용 기한이 7일 남으면 알림으로 알려드려요</div>
+</sc-if>
+<sc-if value="{{ used }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 12px; opacity: 0.55; filter: grayscale(1)">
+<div role="button" aria-label="간편결제 포인트 1,000원 쿠폰 열기" onClick="{{ open2 }}" style="position: relative; display: flex; border-radius: 20px; background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; box-sizing: border-box; overflow: hidden; cursor: pointer">
+<div style="width: 76px; background: #3FBF6B; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2"></rect><path d="M3 9h18M12 9v11M12 9S10.5 4 8 4.5 7.5 9 12 9zM12 9s1.5-5 4-4.5S16.5 9 12 9z"></path></svg></div>
+<div style="flex-grow: 1; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 13px; font-weight: 700; color: #5B6078">간편결제 포인트</div><div style="font-size: 12px; font-weight: 900; color: {{ dc2 }}; background: {{ db2 }}; border-radius: 999px; padding: 2px 8px">사용 완료</div></div>
+<div style="font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px">1,000원</div>
+<div style="font-size: 12px; font-weight: 700; color: #8A8FA3">2026.09.12 사용</div></div></div>
+<div role="button" aria-label="편의점 상품권 5,000원 쿠폰 열기" onClick="{{ open3 }}" style="position: relative; display: flex; border-radius: 20px; background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; box-sizing: border-box; overflow: hidden; cursor: pointer">
+<div style="width: 76px; background: #2F6FE8; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2"></rect><path d="M3 9h18M12 9v11M12 9S10.5 4 8 4.5 7.5 9 12 9zM12 9s1.5-5 4-4.5S16.5 9 12 9z"></path></svg></div>
+<div style="flex-grow: 1; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 13px; font-weight: 700; color: #5B6078">편의점 상품권</div><div style="font-size: 12px; font-weight: 900; color: {{ dc3 }}; background: {{ db3 }}; border-radius: 999px; padding: 2px 8px">사용 완료</div></div>
+<div style="font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px">5,000원</div>
+<div style="font-size: 12px; font-weight: 700; color: #8A8FA3">2026.08.30 사용</div></div></div>
+</div>
+</sc-if>
+<sc-if value="{{ sheet }}" hint-placeholder-val="{{ false }}">
+<div role="button" aria-label="닫기" onClick="{{ close }}" style="position: absolute; inset: 0; background: rgba(15,22,48,0.5); z-index: 5"></div>
+<div role="dialog" aria-label="쿠폰 바코드" style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 6; background: #FFFFFF; border-radius: 28px 28px 0 0; padding: 12px 24px 32px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+<div style="width: 40px; height: 5px; border-radius: 3px; background: #D6DBE5"></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 14px; font-weight: 700; color: #5B6078">{{ sTitle }}</div><div style="font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.6px">{{ sAmount }}</div></div>
+<div style="width: 100%; box-sizing: border-box; border: 2px solid #E3E7EF; border-radius: 18px; padding: 18px 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px">
+<div aria-label="바코드" role="img" style="height: 84px; display: flex; align-items: stretch"><div style="width: 3px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 3px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 4px; height: 100%; background: #1F2233"></div><div style="width: 1px; height: 100%; background: transparent"></div><div style="width: 2px; height: 100%; background: #1F2233"></div><div style="width: 1px; height: 100%; background: transparent"></div><div style="width: 3px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 1px; height: 100%; background: transparent"></div><div style="width: 3px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 4px; height: 100%; background: #1F2233"></div><div style="width: 1px; height: 100%; background: transparent"></div><div style="width: 2px; height: 100%; background: #1F2233"></div><div style="width: 3px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 3px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 2px; height: 100%; background: #1F2233"></div><div style="width: 1px; height: 100%; background: transparent"></div><div style="width: 3px; height: 100%; background: #1F2233"></div><div style="width: 1px; height: 100%; background: transparent"></div><div style="width: 4px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 3px; height: 100%; background: #1F2233"></div><div style="width: 1px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 3px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 4px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 2px; height: 100%; background: transparent"></div><div style="width: 1px; height: 100%; background: #1F2233"></div><div style="width: 3px; height: 100%; background: transparent"></div></div>
+<div style="font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 3px">8801 2345 6789 01</div></div>
+<div style="font-size: 13px; font-weight: 700; color: #5B6078">계산대에서 바코드를 보여주세요 · 화면 밝기가 자동으로 올라가요</div>
+<div style="width: 100%"><div role="button" onClick="{{ close }}" style="min-height: 54px; border-radius: 16px; box-sizing: border-box; background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; color: #1D52B8; font-size: 16px; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer">닫기</div></div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const tab = s.tab || 'usable';
+    const tabs = [['usable', '사용 가능 2'], ['used', '사용 완료']].map((t) => {
+      const on = t[0] === tab;
+      return { label: t[1], sel: on ? 'true' : 'false', bg: on ? '#FFFFFF' : 'transparent', sh: on ? '0 3px 0 #E3E7EF' : 'none', color: on ? '#1F2233' : '#5B6078', pick: () => this.setState({ tab: t[0] }) };
+    });
+    const info = [['편의점 상품권', '5,000원'], ['카페 음료 쿠폰', '아메리카노'], ['간편결제 포인트', '1,000원'], ['편의점 상품권', '5,000원']];
+    const cur = info[s.open ?? 0];
+    const out = { tabs: tabs, usable: tab === 'usable', used: tab === 'used', sheet: s.open != null, sTitle: cur[0], sAmount: cur[1], close: () => this.setState({ open: null }) };
+    const dd = [['#1D52B8', '#E6EEFF'], ['#C73A31', '#FFE8E5'], ['#5B6078', '#ECEEF3'], ['#5B6078', '#ECEEF3']];
+    for (let i = 0; i < 4; i++) {
+      out['open' + i] = i < 2 ? () => this.setState({ open: i }) : () => {};
+      out['dc' + i] = dd[i][0];
+      out['db' + i] = dd[i][1];
+    }
+    return out;
+  }
+}
+</script>
+</body>
+</html>

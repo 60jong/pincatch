@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>catch pin · 지갑</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;900&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1F2233;text-decoration:none}a:hover{color:#1F2233}
+.scroll-col>*{flex-shrink:0}
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; width: 390px; height: 844px; background: #FFFFFF; font-family: 'Gothic A1', system-ui, sans-serif; color: #1F2233">
+<div class="scroll-col" style="position: absolute; inset: 0 0 88px 0; overflow-y: auto; padding: 18px 16px 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<h1 style="margin: 4px 6px 0; font-size: 28px; font-weight: 900; letter-spacing: -1px">지갑</h1>
+<div style="border-radius: 22px; padding: 20px; background: #2F6FE8; color: #FFFFFF; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 6px 0 #1D52B8">
+<div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 14px; font-weight: 600; opacity: 0.85">보유 포인트</div><div style="font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.18); border-radius: 999px; padding: 4px 10px">이번 달 +3,210P</div></div>
+<div style="font-family: 'Sora', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -1.2px; font-variant-numeric: tabular-nums">12,480<span style="font-size: 22px; font-weight: 700; opacity: 0.85"> P</span></div>
+<div style="display: flex; gap: 8px">
+<a href="ExchangeDetail.dc.html" style="flex: 1; min-height: 44px; border-radius: 12px; background: #FFFFFF; box-shadow: 0 3px 0 #1D52B8; color: #2F6FE8; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center">교환하기</a>
+<a href="CouponBox.dc.html" style="flex: 1; min-height: 44px; border-radius: 12px; background: rgba(255,255,255,0.18); color: #FFFFFF; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center">쿠폰함</a>
+</div>
+</div>
+<div style="font-size: 13px; font-weight: 900; color: #5B6078; padding: 0 6px; margin-bottom: -10px">교환할 수 있는 상품</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div role="button" onClick="{{ pick_편의 }}" style="background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; border-radius: 20px; box-sizing: border-box; padding: 14px; display: flex; flex-direction: column; gap: 10px; cursor: pointer">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(47,111,232,0.12); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F6FE8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-4h13L20 9"></path><path d="M4 9h16v2a3 3 0 0 1-5.3 1.9A3 3 0 0 1 12 14a3 3 0 0 1-2.7-1.1A3 3 0 0 1 4 11z"></path><path d="M5.5 13.5V20h13v-6.5"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><div style="font-size: 14px; font-weight: 900; line-height: 1.3">편의점 모바일 상품권 5천원</div><div style="font-size: 14px; font-weight: 700; color: #2F6FE8; font-variant-numeric: tabular-nums">5,000P</div></div>
+</div>
+<div role="button" onClick="{{ pick_카페 }}" style="background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; border-radius: 20px; box-sizing: border-box; padding: 14px; display: flex; flex-direction: column; gap: 10px; cursor: pointer">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(160,82,45,0.12); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A0522D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v6a5 5 0 0 1-10 0z"></path><path d="M16 9.5h1.5a2.5 2.5 0 0 1 0 5H16"></path><path d="M8 3.5c0 1 1 1 1 2M11 3.5c0 1 1 1 1 2"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><div style="font-size: 14px; font-weight: 900; line-height: 1.3">카페 음료 쿠폰</div><div style="font-size: 14px; font-weight: 700; color: #2F6FE8; font-variant-numeric: tabular-nums">4,500P</div></div>
+</div>
+<div role="button" onClick="{{ pick_간편 }}" style="background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; border-radius: 20px; box-sizing: border-box; padding: 14px; display: flex; flex-direction: column; gap: 10px; cursor: pointer">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(52,199,89,0.14); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F8A3E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"></rect><circle cx="12" cy="12" r="2.5"></circle></svg></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><div style="font-size: 14px; font-weight: 900; line-height: 1.3">간편결제 포인트 1천원</div><div style="font-size: 14px; font-weight: 700; color: #2F6FE8; font-variant-numeric: tabular-nums">1,000P</div></div>
+</div>
+<div role="button" onClick="{{ pick_영화 }}" style="background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; border-radius: 20px; box-sizing: border-box; padding: 14px; display: flex; flex-direction: column; gap: 10px; cursor: pointer">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(194,65,12,0.12); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a2.5 2.5 0 0 0 0 5V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3.5a2.5 2.5 0 0 0 0-5z"></path><path d="M14.5 5v14" stroke-dasharray="2 2.5"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><div style="font-size: 14px; font-weight: 900; line-height: 1.3">영화 관람권</div><div style="font-size: 14px; font-weight: 700; color: #2F6FE8; font-variant-numeric: tabular-nums">11,000P</div></div>
+</div>
+</div>
+<div style="font-size: 13px; font-weight: 900; color: #5B6078; padding: 0 6px; margin-bottom: -10px">포인트 내역</div>
+<div style="background: #FFFFFF; border: 2px solid #E3E7EF; border-bottom-width: 4px; border-radius: 20px; box-sizing: border-box; overflow: hidden"><div style="display: flex; align-items: center; gap: 12px; padding: 13px 16px; border-bottom: 2px solid #E3E7EF"><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 1px"><div style="font-size: 15px; font-weight: 700">핀 획득</div><div style="font-size: 13px; color: #5B6078">오늘 14:02</div></div><div style="font-size: 15px; font-weight: 700; color: #1F8A3E; font-variant-numeric: tabular-nums">+30P</div></div><div style="display: flex; align-items: center; gap: 12px; padding: 13px 16px; border-bottom: 2px solid #E3E7EF"><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 1px"><div style="font-size: 15px; font-weight: 700">골드 핀 획득</div><div style="font-size: 13px; color: #5B6078">오늘 11:20</div></div><div style="font-size: 15px; font-weight: 700; color: #1F8A3E; font-variant-numeric: tabular-nums">+100P</div></div><div style="display: flex; align-items: center; gap: 12px; padding: 13px 16px; border-bottom: 2px solid #E3E7EF"><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 1px"><div style="font-size: 15px; font-weight: 700">편의점 모바일 상품권 교환</div><div style="font-size: 13px; color: #5B6078">어제 21:40</div></div><div style="font-size: 15px; font-weight: 700; color: #1F2233; font-variant-numeric: tabular-nums">−5,000P</div></div><div style="display: flex; align-items: center; gap: 12px; padding: 13px 16px; "><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 1px"><div style="font-size: 15px; font-weight: 700">친구 초대 보상</div><div style="font-size: 13px; color: #5B6078">어제 15:02</div></div><div style="font-size: 15px; font-weight: 700; color: #1F8A3E; font-variant-numeric: tabular-nums">+500P</div></div></div>
+
+</div>
+<nav style="position: absolute; left: 0; right: 0; bottom: 0; height: 88px; background: #FFFFFF; border-top: 2px solid #E3E7EF; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; padding: 0 8px; box-sizing: border-box; z-index: 5"><a href="HomeGlass.dc.html" aria-label="지도" style="display: flex; justify-content: center; align-items: center; min-height: 48px"><div style="width: 60px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s-7.5-6.5-7.5-12.5a7.5 7.5 0 0 1 15 0C19.5 15.5 12 22 12 22z" fill="#2F6FE8"></path><circle cx="12" cy="9.5" r="3" fill="#FFFFFF"></circle></svg></div></a><a href="History.dc.html" aria-label="기록" style="display: flex; justify-content: center; align-items: center; min-height: 48px"><div style="width: 60px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v6a6 6 0 0 1-12 0z" fill="#FFC21A"></path><rect x="10" y="14" width="4" height="4" fill="#D99A00"></rect><rect x="6" y="18" width="12" height="3" rx="1.5" fill="#D99A00"></rect></svg></div></a><a href="Wallet.dc.html" aria-current="page" aria-label="지갑" style="display: flex; justify-content: center; align-items: center; min-height: 48px"><div style="width: 60px; height: 44px; border-radius: 14px; border: 2px solid #2F6FE8; background: #E6EEFF; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="4" fill="#2E9E55"></rect><rect x="2" y="5" width="20" height="14" rx="4" fill="#3FBF6B"></rect><circle cx="16.5" cy="12" r="2" fill="#FFFFFF"></circle></svg></div></a><a href="MyPage.dc.html" aria-label="내 정보" style="display: flex; justify-content: center; align-items: center; min-height: 48px"><div style="width: 60px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4.5" fill="#2E90FA"></circle><path d="M3 21a9 9 0 0 1 18 0z" fill="#2E90FA"></path></svg></div></a></nav>
+<sc-if value="{{ sheet }}" hint-placeholder-val="{{ false }}">
+<div role="button" aria-label="닫기" onClick="{{ closeSheet }}" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 8"></div>
+<div role="dialog" aria-label="교환 확인" style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 9; background: #FFFFFF; border-radius: 28px 28px 0 0; padding: 10px 20px 34px; display: flex; flex-direction: column; gap: 16px; ">
+<div style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: #D6DBE5"></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 22px; font-weight: 900; letter-spacing: -0.5px">{{ sheetTitle }}</div><div style="font-size: 14px; font-weight: 700; color: #5B6078">{{ sheetPrice }} 사용 · 교환 후 남는 포인트 {{ remain }}</div></div>
+<a href="ExchangeDone.dc.html" style="min-height: 54px; border-radius: 16px; background: #2F6FE8; box-shadow: 0 4px 0 #1D52B8; color: #FFFFFF; font-size: 16px; font-weight: 900; display: flex; align-items: center; justify-content: center; cursor: pointer">교환하기</a>
+<div role="button" onClick="{{ closeSheet }}" style="min-height: 54px; border-radius: 16px; border: 2px solid #E3E7EF; border-bottom-width: 4px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: #5B6078; cursor: pointer">취소</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const goods = { '편의': ['편의점 모바일 상품권 5천원', 5000], '카페': ['카페 음료 쿠폰', 4500], '간편': ['간편결제 포인트 1천원', 1000], '영화': ['영화 관람권', 11000] };
+    const g = goods[s.pick] || goods['편의'];
+    const out = {
+      sheet: !!s.pick,
+      sheetTitle: g[0],
+      sheetPrice: g[1].toLocaleString('en-US') + 'P',
+      remain: (12480 - g[1]).toLocaleString('en-US') + 'P',
+      closeSheet: () => this.setState({ pick: null })
+    };
+    Object.keys(goods).forEach((k) => { out['pick_' + k] = () => this.setState({ pick: k }); });
+    return out;
+  }
+}
+</script>
+</body>
+</html>

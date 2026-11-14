@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>catch pin · 인증 관리 · 다크</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;900&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark}
+body{margin:0;background:#11141D}
+a{color:#EEF1F8;text-decoration:none}a:hover{color:#EEF1F8}
+input::placeholder{color:#5F667C}
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; width: 390px; height: 844px; box-sizing: border-box; background: #1B2030; font-family: 'Gothic A1', system-ui, sans-serif; color: #EEF1F8; padding: 18px 20px 28px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: center; justify-content: space-between; min-height: 44px; margin: -6px -10px 0"><a href="MyPageDark.dc.html" aria-label="뒤로" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5F667C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a><div style="font-size: 17px; font-weight: 900">인증 관리</div><div style="min-width: 44px"></div></div>
+<div style="border-radius: 24px; background: #2C2513; border: 2px solid #5A4818; border-bottom-width: 5px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 14px"><div style="width: 52px; height: 52px; border-radius: 16px; background: #FFC21A; box-shadow: 0 4px 0 #D99A00; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3A2A00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"></rect><path d="M11 17.5h2"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 3px"><div style="font-size: 18px; font-weight: 900; color: #FFE08A">인증이 1개 남았어요</div><div style="font-size: 13px; font-weight: 700; color: #FFCF4D; line-height: 1.45">포인트를 상품권으로 바꾸려면<br>휴대폰 인증이 필요해요</div></div></div>
+<div style="height: 10px; border-radius: 5px; background: #FFE9A8; overflow: hidden"><div style="width: 66%; height: 100%; border-radius: 5px; background: #D99A00"></div></div>
+<div style="font-size: 12px; font-weight: 900; color: #FFCF4D; margin-top: -6px">3개 중 2개 완료</div>
+</div>
+<div style="font-size: 13px; font-weight: 900; color: #A3A9BD; padding: 0 4px; margin-bottom: -10px">내 인증 상태</div>
+<div style="background: #1B2030; border: 2px solid #2A3044; border-bottom-width: 4px; border-radius: 20px; box-sizing: border-box; overflow: hidden"><div style="position: relative; display: flex; align-items: center; gap: 12px; padding: 14px"><div style="width: 34px; height: 34px; border-radius: 10px; background: #8C93A8; box-shadow: 0 3px 0 rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"></rect><path d="M11 17.5h2"></path></svg></div><div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 900">휴대폰 번호</div><div style="font-size: 13px; font-weight: 700; color: #FF7A70">아직 인증하지 않았어요</div></div><span style="font-size: 12px; font-weight: 900; color: #FF7A70; background: #3A1E1E; border-radius: 999px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0">미인증</span><div style="position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #2A3044"></div></div>
+<div style="position: relative; padding: 0 14px 14px"><a href="PhoneVerifyDark.dc.html" style="min-height: 46px; border-radius: 14px; background: #2F6FE8; box-shadow: 0 4px 0 #1D52B8; color: #FFFFFF; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"></rect><path d="M11 17.5h2"></path></svg>지금 인증하기</a><div style="position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #2A3044"></div></div><div style="position: relative; display: flex; align-items: center; gap: 12px; padding: 14px"><div style="width: 34px; height: 34px; border-radius: 10px; background: #FEE500; box-shadow: 0 3px 0 #D9C200; flex-shrink: 0"></div><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 900">계정 연결</div><div style="font-size: 13px; font-weight: 700; color: #A3A9BD">카카오로 로그인</div></div><span style="font-size: 12px; font-weight: 900; color: #4FD07D; background: #213627; border-radius: 999px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0">완료</span><div style="position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #2A3044"></div></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px"><div style="width: 34px; height: 34px; border-radius: 10px; background: #8C93A8; box-shadow: 0 3px 0 rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M4 7l8 6 8-6"></path></svg></div><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 900">이메일</div><div style="font-size: 13px; font-weight: 700; color: #A3A9BD">hunter@kakao.com</div></div><span style="font-size: 12px; font-weight: 900; color: #4FD07D; background: #213627; border-radius: 999px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0">완료</span></div></div>
+<div style="font-size: 13px; font-weight: 900; color: #A3A9BD; padding: 0 4px; margin-bottom: -10px">인증이 필요한 기능</div>
+<div style="background: #1B2030; border: 2px solid #2A3044; border-bottom-width: 4px; border-radius: 20px; box-sizing: border-box; overflow: hidden"><div style="position: relative; display: flex; align-items: center; gap: 12px; padding: 12px 14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2"></rect><path d="M3 9h18M12 9v11M12 9S10.5 4 8 4.5 7.5 9 12 9zM12 9s1.5-5 4-4.5S16.5 9 12 9z"></path></svg><div style="flex-grow: 1; font-size: 14px; font-weight: 700">포인트 → 상품권 교환</div><span style="font-size: 12px; font-weight: 900; color: #FF7A70; background: #3A1E1E; border-radius: 999px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0">인증 필요</span><div style="position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #2A3044"></div></div><div style="position: relative; display: flex; align-items: center; gap: 12px; padding: 12px 14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s-7-6-7-11.5a7 7 0 0 1 14 0c0 5.5-7 11.5-7 11.5z"></path></svg><div style="flex-grow: 1; font-size: 14px; font-weight: 700">핀 잡기 · 기록 보기</div><span style="font-size: 12px; font-weight: 900; color: #A3A9BD; background: #232838; border-radius: 999px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0">인증 없이 가능</span></div></div>
+<div style="font-size: 12px; font-weight: 700; color: #7C8399; padding: 0 4px; line-height: 1.6; margin-top: -6px">한 사람이 여러 계정으로 포인트를 모으는 것을 막기 위해, 휴대폰 번호 하나당 한 계정만 인증할 수 있어요.</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
